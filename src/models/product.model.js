@@ -26,17 +26,19 @@ const productSchema = mongoose.Schema({
   quantityInStock: {
     type: Number,
   },
-  tags:[{
-    type: String
-  }],
+  tags: [
+    {
+      type: String,
+    },
+  ],
   si: {
-    type: String
+    type: String,
   },
   vendor: {
-    type: String
+    type: String,
   },
   descriptions: {
-    type: String
+    type: String,
   },
 });
 

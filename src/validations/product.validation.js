@@ -28,42 +28,48 @@ const getProducts = {
 
 const getProduct = {
   params: Joi.object().keys({
-    userId: Joi.string().custom(objectId),
+    productId: Joi.string().custom(objectId),
+  }),
+};
+
+const getProductByKeyWord = {
+  query: Joi.object().keys({
+    keyword: Joi.string(),
   }),
 };
 
 const updateProduct = {
   params: Joi.object().keys({
-    userId: Joi.required().custom(objectId),
+    productId: Joi.required().custom(objectId),
   }),
   body: Joi.object()
     .keys({
-        name: Joi.string(),
-        unit: Joi.string(),
-        imageLink: Joi.string(),
-        promotionalPricing: Joi.number(),
-        originalPrice: Joi.number(),
-        quantityInStock: Joi.number().integer(),
-        tags: Joi.string().required(),
-        si: Joi.string(),
-        vendor: Joi.string().required(),
-        descriptions: Joi.string(),
-        capacity: Joi.number().integer(),
+      name: Joi.string(),
+      unit: Joi.string(),
+      imageLink: Joi.string(),
+      promotionalPricing: Joi.number(),
+      originalPrice: Joi.number(),
+      quantityInStock: Joi.number().integer(),
+      tags: Joi.string().required(),
+      si: Joi.string(),
+      vendor: Joi.string().required(),
+      descriptions: Joi.string(),
+      capacity: Joi.number().integer(),
     })
     .min(1),
 };
 
 const deleteProduct = {
-    params: Joi.object().keys({
-      productId: Joi.string().custom(objectId),
-    }),
-  };
+  params: Joi.object().keys({
+    productId: Joi.string().custom(objectId),
+  }),
+};
 
 module.exports = {
-    createProduct,
-    getProducts,
-    getProduct,
-    updateProduct,
-    deleteProduct,
-}
-  
+  createProduct,
+  getProducts,
+  getProduct,
+  getProductByKeyWord,
+  updateProduct,
+  deleteProduct,
+};
